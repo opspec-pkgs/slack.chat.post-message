@@ -1,0 +1,25 @@
+name: slack-msg-chan
+description: op to msg a slack channel
+inputs:
+  msg:
+    string:
+      constraints: { minLength: 1}
+  channelName:
+    string:
+      constraints: { minLength: 1}
+  apiToken:
+    string:
+      constraints: { minLength: 10 }
+      isSecret: true
+run:
+  container:
+    image: { ref: 'node:7.7' }
+    cmd: 
+      - sh
+      - -ce
+      - |
+        echo "installing deps"
+        npm install -g slack-cli
+
+        echo "calling slack"
+        slackcli -t "$(apiToken)" -h "$(channelName)" -m "$(msg)"
