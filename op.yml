@@ -18,8 +18,6 @@ run:
       - sh
       - -ce
       - |
-        echo "installing deps"
-        npm install -g slack-cli
-
         echo "calling slack"
-        slackcli -t "$(apiToken)" -h "$(channelName)" -m "$(msg)"
+        /node_modules/slack-cli/bin/cmd.js -t "$(apiToken)" -h "$(channelName)" -m "$(msg)"
+    dirs: { /node_modules }
