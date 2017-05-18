@@ -1,5 +1,5 @@
 name: github.com/chrisdostert/slack-msg-chan
-description: op to msg a slack channel
+description: msgs a slack channel
 inputs:
   msg:
     string:
