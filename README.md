@@ -1,6 +1,6 @@
 # problem statement
 
-msgs a slack channel
+posts a message to a public, private, or direct message/IM slack channel
 
 # example usage
 
