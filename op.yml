@@ -1,5 +1,5 @@
-name: github.com/chrisdostert/slack-msg-chan
-description: msgs a slack channel
+name: github.com/opspec-pkgs/slack.chat.post-message
+description: posts a message to a public, private, or direct message/IM slack channel
 inputs:
   msg:
     string:
