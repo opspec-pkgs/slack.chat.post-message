@@ -13,11 +13,9 @@ inputs:
       isSecret: true
 run:
   container:
-    image: { ref: 'node:7.7' }
+    image: { ref: 'opspecpkgs/slack.chat.post-message:0.0.1' }
     cmd: 
       - sh
       - -ce
       - |
-        echo "calling slack"
-        /node_modules/slack-cli/bin/cmd.js -t "$(apiToken)" -h "$(channelName)" -m "$(msg)"
-    dirs: { /node_modules }
+        node_modules/slack-cli/bin/cmd.js -t "$(apiToken)" -h "$(channelName)" -m "$(msg)"

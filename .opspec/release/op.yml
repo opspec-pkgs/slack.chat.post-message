@@ -1,0 +1,57 @@
+name: release
+description: releases the package
+inputs:
+  version:
+    string:
+      constraints: { format: semver }
+  dockerUsername:
+    string:
+      constraints: { minLength: 1 }
+      description: user for logging in to docker hub
+  dockerPassword:
+    string:
+      constraints: { minLength: 1 }
+      description: password for logging in to docker hub
+      isSecret: true
+  githubUsername:
+    string:
+      constraints: { minLength: 1 }
+      description: user for logging in to github
+  githubPassword:
+    string:
+      constraints: { minLength: 1 }
+      description: password for logging in to github
+      isSecret: true
+  pkg:
+    dir:
+      default: .
+run:
+  serial:
+    - op:
+        pkg: { ref: build }
+        inputs:
+          version:
+          pkg:
+        outputs:
+          imageTar:
+    - op:
+        pkg: { ref: github.com/opspec-pkgs/docker.image.push#1.1.0 }
+        inputs:
+          imageTar:
+          imageName: 'opspecpkgs/slack.chat.post-message:$(version)'
+          username: $(dockerUsername)
+          password: $(dockerPassword)
+    - op:
+        pkg: { ref: github.com/opspec-pkgs/git.repo.resolve-commit#1.0.0 }
+        inputs: { dotGitDir: $(pkg)/.git }
+        outputs: { commit: }
+    - op:
+        pkg: { ref: github.com/opspec-pkgs/github.release.create#1.0.0 }
+        inputs:
+          owner: opspec-pkgs
+          repo: slack.chat.post-message
+          loginUsername: $(githubUsername)
+          loginPassword: $(githubPassword)
+          tag: $(version)
+          commitish: $(commit)
+          name: $(version)

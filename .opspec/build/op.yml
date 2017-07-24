@@ -1,0 +1,22 @@
+name: build
+description: builds the package
+inputs:
+  version:
+    string:
+      constraints: { format: semver }
+      default: 0.0.0
+  pkg:
+    dir:
+      default: .
+  dockerfile:
+    file:
+      default: /Dockerfile
+run:
+  serial:
+    - op:
+        pkg: { ref: test }
+        inputs: { pkg }
+    - op:
+        pkg: { ref: github.com/opspec-pkgs/docker.image.build#1.1.0 }
+        inputs: { dockerfile, imageName: 'opspecpkgs/slack.chat.post-message:$(version)' }
+        outputs: { imageTar }
