@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/opspec-pkgs/slack.chat.post-message.svg?branch=master)](https://travis-ci.org/opspec-pkgs/slack.chat.post-message)
 
+<img src="icon.svg" alt="icon" height="100px">
 
 # Problem statement
 
@@ -14,24 +15,24 @@ this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opsp
 ## Install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/slack.chat.post-message#
+opctl pkg install github.com/opspec-pkgs/slack.chat.post-message#1.0.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/slack.chat.post-message#
+opctl run github.com/opspec-pkgs/slack.chat.post-message#1.0.0
 ```
 
 ## Compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/slack.chat.post-message# }
+  pkg: { ref: github.com/opspec-pkgs/slack.chat.post-message#1.0.0 }
   inputs:
-    apiToken:
-    channelName:
     msg:
+    channelName:
+    apiToken:
 ```
 
 # Support
