@@ -1,37 +1,38 @@
 [![Build Status](https://travis-ci.org/opspec-pkgs/slack.chat.post-message.svg?branch=master)](https://travis-ci.org/opspec-pkgs/slack.chat.post-message)
 
+
 # Problem statement
 
 posts a message to a public, private, or direct message/IM slack channel
 
+# Format
+
+this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opspec-0.1.5-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.5/packages.html) format
+
 # Example usage
 
-> note: in examples, VERSION represents a version of the
-> slack.chat.post-message pkg
-
-## install
+## Install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/slack.chat.post-message#VERSION
+opctl pkg install github.com/opspec-pkgs/slack.chat.post-message#
 ```
 
-## run
+## Run
 
-```shell
-opctl run github.com/opspec-pkgs/slack.chat.post-message#VERSION
+```
+opctl run github.com/opspec-pkgs/slack.chat.post-message#
 ```
 
-## compose
+## Compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/slack.chat.post-message#VERSION }
-  inputs: 
-    msg:
-    channelName:
+  pkg: { ref: github.com/opspec-pkgs/slack.chat.post-message# }
+  inputs:
     apiToken:
+    channelName:
+    msg:
 ```
-
 
 # Support
 
