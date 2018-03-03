@@ -14,9 +14,5 @@ inputs:
 version: 1.0.0
 run:
   container:
-    image: { ref: 'opspecpkgs/slack.chat.post-message:0.0.1' }
-    cmd: 
-      - sh
-      - -ce
-      - |
-        node_modules/slack-cli/bin/cmd.js -t "$(apiToken)" -h "$(channelName)" -m "$(msg)"
+    image: { ref: 'opspecpkgs/slack.chat.post-message:1.0.0' }
+    cmd: [slackcli, -t, $(apiToken), -h, $(channelName), -m, $(msg)]

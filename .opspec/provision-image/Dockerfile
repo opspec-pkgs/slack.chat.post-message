@@ -1,3 +1,3 @@
-FROM node:8.1.0-alpine
+FROM node:9.5.0-alpine
 
-RUN npm install slack-cli
+RUN yarn global add slack-cli
