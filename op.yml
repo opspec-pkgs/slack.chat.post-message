@@ -11,8 +11,8 @@ inputs:
     string:
       constraints: { minLength: 10 }
       isSecret: true
-version: 1.0.0
+version: 1.1.0
 run:
   container:
-    image: { ref: 'opspecpkgs/slack.chat.post-message:1.0.0' }
+    image: { ref: 'opspecpkgs/slack.chat.post-message:1.1.0' }
     cmd: [slackcli, -t, $(apiToken), -h, $(channelName), -m, $(msg)]
