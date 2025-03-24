@@ -1,4 +1,5 @@
-[![Build Status](https://github.com/opspec-pkgs/slack.chat.post-message/workflows/build/badge.svg?branch=main)](https://github.com/opspec-pkgs/slack.chat.post-message/actions?query=workflow%3Abuild+branch%3Amain)
+[![build](https://github.com/opspec-pkgs/slack.chat.post-message/actions/workflows/build.yml/badge.svg)](https://github.com/opspec-pkgs/slack.chat.post-message/actions/workflows/build.yml)
+
 
 <img src="icon.svg" alt="icon" height="100px">
 
